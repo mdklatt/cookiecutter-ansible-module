@@ -43,7 +43,7 @@ def main():
         chdir(defaults["project_name"])
         virtualenv = "virtualenv venv"
         check_call(split(virtualenv))
-        install = "venv/bin/pip install --requirement=test/requirements.txt"
+        install = "venv/bin/pip install -r requirements.txt -r test/requirements.txt"
         check_call(split(install))
         pytest = "venv/bin/pytest --ansible-host-pattern=localhost test/"
         check_call(split(pytest), env={"ANSIBLE_LIBRARY": "src"})

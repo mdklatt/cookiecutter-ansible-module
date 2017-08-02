@@ -1,0 +1,21 @@
+## Travis CI configuration for the ansible-module project template.
+##
+##  <https://travis-ci.org/mdklatt/cookiecutter-ansible-module>
+##
+language: python
+
+python:
+  - "2.7"
+
+branches:
+  only:
+    - master
+    - dev
+
+sudo: false  # use container infrastructure
+
+install:
+  - pip install -r requirements.txt -r tests/requirements.txt
+
+script:
+  - python tests/test_template.py
