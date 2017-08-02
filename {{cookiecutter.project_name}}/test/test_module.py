@@ -8,12 +8,19 @@ run with `--ansible-host-pattern=localhost`.
 import pytest
 
 
-@pytest.mark.xfail(reason="not implemented")
-def test_{{ cookiecutter.module_name }}():
+@pytest.mark.parametrize("execute", [True, False])
+def test_{{ cookiecutter.module_name }}(ansible_module, execute):
     """ Test the {{ cookiecutter.module_name }} module.
     
     """
-    assert False
+    params = {
+        "execute": execute,
+    }
+    result = ansible_module.{{ cookiecutter.module_name }}(**params)
+    host = result["localhost"]
+    assert not host.get("failed", False)
+    assert host["changed"] == execute
+    assert host["execute"] == execute
     return
 
 

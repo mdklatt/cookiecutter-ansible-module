@@ -45,8 +45,8 @@ def main():
         check_call(split(virtualenv))
         install = "venv/bin/pip install --requirement=test/requirements.txt"
         check_call(split(install))
-        pytest = "venv/bin/pytest --verbose test/"
-        check_call(split(pytest))
+        pytest = "venv/bin/pytest --ansible-host-pattern=localhost test/"
+        check_call(split(pytest), env={"ANSIBLE_LIBRARY": "src"})
     return 0
     
     

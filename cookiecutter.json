@@ -1,5 +1,5 @@
 {
-    "project_name": "rolename",
+    "project_name": "modulename",
     "module_name": "{{ cookiecutter.project_name }}",
     "author_name": "",
     "author_email": "",
