@@ -27,7 +27,7 @@ options:
 
 
 EXAMPLES = """
-- "{{ cookiecutter.project_version }}":
+- "{{ cookiecutter.module_name }}":
     execute: true
 """  # plain text
 
